@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pi SenseHat LED Designer by Jonathan ZJ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="apple-touch-icon" sizes="180x180" href="http://raspberrypi:8080/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://raspberrypi:8080/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://raspberrypi:8080/favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css" integrity="sha512-KuSX+43gVS5MEIJD2ewtrFPOHqC1PJnL8o2f5ciggPC0JUZ8XV0QXlfArO1mSzKkVFdRjsBDfrTU96C5SuRfqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+<link rel="stylesheet" href="spectrum.css">
+
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+
+.led, .led-color {
+    display: inline-block;
+    border: 1px solid #bdbdbd;
+    width: 2.2em;
+    height: 2.2em;
+    background-color: rgb(0,0,0);
+    margin-right: 0.2em;
+}
+
+.sp-preview {
+    border: 1px solid #bdbdbd;
+    width: 3em;
+    height: 1.4em;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="./" class="w3-bar-item w3-button w3-padding-large">Pi SenseHat LED Designer</a>
+  </div>
+</div>
+
+
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h3 class="w3-wide">Pi SenseHat LED Designer</h3>
+
+    Choose a colour & change an LED colour
+    <br><br>
+
+    Color: <input id="color" type='text' class='custom' />
+    <br><br>
+    <div id="led-colors"></div>
+
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <div class="led" data-value="0,0,0"></div>
+    <br> 
+    <br>
+    <a href="#" onclick="$('#input').val(TMNT);getPixelCode();return false;" class="tag">TMNT</a> 
+    <a href="#" onclick="$('#input').val(TMNT1);getPixelCode();return false;" class="tag">TMNT1</a> 
+    <a href="#" onclick="$('#input').val(TMNT2);getPixelCode();return false;" class="tag">TMNT2</a> 
+    <a href="#" onclick="$('#input').val(TMNT3);getPixelCode();return false;" class="tag">TMNT3</a> 
+    <a href="#" onclick="$('#input').val(TMNT4);getPixelCode();return false;" class="tag">TMNT4</a> 
+
+    <br>
+    <br>
+    <h3>Output Pixel Code</h3>
+    Click to copy
+    <br>
+    <div id="output" onclick="copyToClipboard($(this).text());" style="font-family: 'Courier New', Courier, monospace; border: 2px solid #999; padding: 1em;;"></div>
+    
+
+    <h3>Input LED Code</h3>
+    <input type='text' id="input"  style="font-family: 'Courier New', Courier, monospace; border: 2px solid #999; padding: 1em; display: block; width: 100%;"  />
+    <br>
+    <button onclick="getPixelCode();" value="Insert" >Input LED Code</button>
+    </div>
+  </div>
+
+  
+<!-- End Page Content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <p class="w3-medium">Created by Jonathan Zasada-James 2022</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- <script src="spectrum.js" crossorigin="anonymous"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js" integrity="sha512-1aNp9qKP+hKU/VJwCtYqJP9tdZWbMDN5pEEXXoXT0pTAxZq1HHZhNBR/dtTNSrHO4U1FsFGGILbqG1O9nl8Mdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script> <!-- include socket.io client side script -->
+<script>
+var socket = io(); //load socket.io-client and connect to the host that serves the page
+
+
+
+var TMNT = "[[0,0,0],[0, 0, 0],[131, 214, 133],[119, 216, 81],[59, 220, 64],[89, 231, 79],[0,0,0],[33, 134, 201],[0,0,0],[71, 144, 190],[56, 92, 162],[61, 91, 203],[76, 115, 165],[66, 105, 179],[20, 114, 199],[0,0,0],[52, 102, 192],[48, 119, 172],[255, 255, 255],[51, 109, 138],[255, 255, 255],[41, 86, 141],[55, 104, 166],[46, 107, 172],[0,0,0],[57, 181, 63],[90, 191, 69],[76, 172, 101],[19, 189, 41],[62, 140, 46],[95, 147, 54],[0,0,0],[45, 174, 67],[77, 202, 93],[41, 169, 56],[46, 163, 61],[49, 159, 67],[255, 255, 255],[39, 169, 32],[0,0,0],[0,0,0],[62, 178, 54],[54, 171, 34],[246, 254, 244],[248, 248, 248],[57, 163, 44],[13, 86, 25],[25, 105, 20],[0,0,0],[33, 103, 37],[85, 177, 54],[41, 186, 43],[55, 179, 62],[47, 171, 60],[55, 164, 52],[19, 107, 21],[33, 160, 40],[16, 173, 45],[211, 172, 42],[241, 199, 108],[241, 178, 67],[54, 175, 76],[64, 166, 49],[28, 109, 47]]";
+var TMNT1 = "[[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[113, 167, 57],[141, 209, 69],[137, 202, 69],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[21, 117, 170],[17, 115, 168],[26, 153, 220],[26, 148, 212],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[112, 172, 63],[139, 215, 77],[135, 207, 77],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[83, 118, 31],[135, 184, 44],[206, 172, 37],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[72, 103, 27],[137, 185, 45],[240, 198, 45],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[124, 175, 47],[161, 214, 56],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]";
+var TMNT2 = "[[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[21, 110, 75],[31, 155, 105],[34, 160, 109],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[63, 50, 145],[50, 36, 118],[75, 57, 179],[79, 61, 187],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[21, 111, 78],[33, 157, 112],[35, 162, 116],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[77, 118, 35],[21, 127, 72],[164, 159, 46],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[67, 103, 31],[20, 127, 71],[193, 180, 51],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[19, 119, 71],[45, 163, 92],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]";
+var TMNT3 = "[[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[52, 125, 39],[70, 187, 52],[71, 191, 54],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[182, 32, 42],[183, 28, 38],[234, 39, 49],[241, 41, 51],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[60, 125, 39],[79, 186, 51],[98, 187, 52],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[81, 115, 31],[56, 159, 39],[183, 168, 39],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[70, 100, 27],[54, 157, 38],[215, 191, 44],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[42, 137, 39],[73, 197, 51],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]";
+var TMNT4 = "[[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[33, 119, 95],[42, 155, 124],[41, 150, 121],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[196, 131, 32],[180, 120, 28],[233, 157, 38],[227, 152, 38],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[40, 124, 94],[53, 162, 124],[52, 157, 120],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[80, 128, 41],[29, 132, 101],[176, 156, 46],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[69, 113, 38],[30, 132, 101],[208, 179, 50],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[22, 122, 102],[46, 149, 115],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]";
+
+$(document).ready(function () {
+    
+
+    //socket.emit("light", 1); 
+    //socket.emit("pi-led-status", 1);
+    //socket.emit("message", {message:"Hello! ",color:[255,0,0]}); 
+  
+    $(".led").on("click", function(e) {
+        //alert($('#color').spectrum('get'));
+        color = $('#color').val();
+        color = color.match(/\(([^)]+)\)/)[1];
+        color = color.replace(/\s/g, '');
+        //alert(color);
+        //alert($(this).attr('data-value'));
+        if (color!=$(this).attr('data-value')){
+            color = color.split(',').map(element => {
+            return Number(element);
+            });
+            
+        } else {
+            color = [0,0,0]
+        }
+        //alert(color);
+
+        //Set the colour and value of the LED
+        $(this).css({backgroundColor:'rgb('+color+')'}).attr('data-value',color);
+        //Update the pixel code
+        setPixelCode(); 
+
+    });
+
+
+    $(".custom").spectrum({
+        color: "#000",
+        preferredFormat: "rgb",
+        clickoutFiresChange: true,
+        showButtons: false,
+        showInput: true,
+        change: function(color) {
+            //setPixelCode(); 
+        },
+        hide: function(color) {
+            //setPixelCode(); 
+        }
+    });
+
+    $(".custom").on("dragstop.spectrum", function(e, color) {
+        
+        //SET THE VALUE TO PICKUP BELOW!
+        //alert($(this).spectrum('get'));
+        $(this).val($(this).spectrum('get'));
+        //setPixelCode();
+        
+    });
+
+
+
+});
+
+function setPixelCode(){
+    const arrOutput = [];
+    //var output = "sense.set_pixels([";
+    var output = "";
+        $( ".led" ).each(function( index ) {
+            val = $( this ).attr('data-value');
+            if (val!=""){
+                //val = val.match(/\(([^)]+)\)/)[1]
+                val = val.split(',').map(element => {
+                  return Number(element);
+                });
+                
+            } else {
+                val = [0,0,0]
+            }
+            console.log( index + ": " + val);
+            arrOutput.push(val);  // Adds a new element (Lemon) to fruits
+            if(index>0){ 
+                output += ",";
+            }
+            output += "["+val+"]";
+        });
+    //output += "])";
+    console.log( arrOutput);
+    $('#output').html(output);
+
+    //Set the pixels on the pi via socket
+    socket.emit("pi-led", arrOutput); //send pixel array to server
+
+    //Set 'Colors Used' divs
+    
+}
+
+function getPixelCode(){
+    var input = "("+$("#input").val()+")";
+    if (input!=""){
+        input = input.match(/\(([^)]+)\)/)[1]
+    }
+
+   
+    var myarray = input.split('],[');
+
+    for(var i = 0; i < myarray.length; i++)
+    {
+        myarray[i] = myarray[i].replace(/[\[\]']+/g,'')
+        //console.log(myarray[i]);
+    }
+
+    $( ".led" ).each(function( index ) {
+        //console.log("Set "+index+":"+myarray[index])
+        //$(this).spectrum("set", "rgb("+myarray[index]+")");
+        $(this).css({backgroundColor:"rgb("+myarray[index]+")"}).attr('data-value',myarray[index]);
+        
+    });
+
+    $('#input').val('');
+    setPixelCode();
+
+    //input = input.replace(/[\[\]']+/g,'')
+    //alert(input);
+
+}
+
+
+
+function copyToClipboard(text) {
+    if (window.clipboardData && window.clipboardData.setData) {
+        // IE specific code path to prevent textarea being shown while dialog is visible.
+        return clipboardData.setData("Text", text); 
+
+    } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        var textarea = document.createElement("textarea");
+        textarea.textContent = text;
+        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+			if(document.execCommand("copy")==true){
+            	alert('Copied!'); 
+				return true;  // Security exception may be thrown by some browsers.
+			}
+        } catch (ex) {
+            console.warn("Copy to clipboard failed.", ex);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
+        }
+		
+    }
+}
+
+setPixelCode();
+
+</script>
+
+
+</body>
+</html>

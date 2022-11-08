@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pi SenseHat LED Designer by Jonathan ZJ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="apple-touch-icon" sizes="180x180" href="http://raspberrypi:8080/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://raspberrypi:8080/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://raspberrypi:8080/favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.css" integrity="sha512-KuSX+43gVS5MEIJD2ewtrFPOHqC1PJnL8o2f5ciggPC0JUZ8XV0QXlfArO1mSzKkVFdRjsBDfrTU96C5SuRfqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+<link rel="stylesheet" href="spectrum.css">
+
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="./" class="w3-bar-item w3-button w3-padding-large">Pi SenseHat LED Designer</a>
+  </div>
+</div>
+
+
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h3 class="w3-wide">Pi SenseHat Send Message to LEDs</h3>
+    <br>
+    Enter A Message
+    <br>
+
+    <input type='text' id="message" style="font-size: 2em;"/>
+
+    <br><br>
+
+    <input type='text' class='custom' id="color" val="rgb(255,0,0)" /> Text Colour
+    <input type='text' class='custom' id="bgcolor" val="rgb(0,0,0)" /> Background Colour
+    <br><br>
+    <input id="send_message" type="button" value="Send Message" />
+
+    
+    </div>
+  </div>
+
+  
+<!-- End Page Content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <p class="w3-medium">Created by Jonathan Zasada-James 2022</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- <script src="spectrum.js" crossorigin="anonymous"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.1/spectrum.min.js" integrity="sha512-1aNp9qKP+hKU/VJwCtYqJP9tdZWbMDN5pEEXXoXT0pTAxZq1HHZhNBR/dtTNSrHO4U1FsFGGILbqG1O9nl8Mdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script> <!-- include socket.io client side script -->
+<script>
+var socket = io(); //load socket.io-client and connect to the host that serves the page
+
+$(document).ready(function () {
+    
+
+  socket.emit("light", 1); 
+  socket.emit("message", {message:"Hello! ",color:[255,0,0]}); 
+
+  
+    $("#send_message").on("click", function(e, color) {
+
+        color = $('#color').val();
+        if (color!=""){
+            color = color.match(/\(([^)]+)\)/)[1];
+            color = color.split(',').map(element => {
+            return Number(element);
+            });
+            
+        } else {
+            color = [0,0,0]
+        }
+
+        bgcolor = $('#bgcolor').val();
+        if (bgcolor!=""){
+            bgcolor = bgcolor.match(/\(([^)]+)\)/)[1];
+            bgcolor = bgcolor.split(',').map(element => {
+            return Number(element);
+            });
+            
+        } else {
+            bgcolor = [0,0,0]
+        }
+        //alert(color)
+        //alert(bgcolor)
+        socket.emit("message", {message:" "+$('#message').val()+" ",speed:"0.1",color:color,bgcolor:bgcolor});
+        
+    });
+  
+});
+
+
+</script>
+
+<script>
+$(".custom").spectrum({
+    //color: "rgb(0,0,0)",
+    preferredFormat: "rgb",
+    clickoutFiresChange: true,
+    showButtons: false,
+    showInput: true,
+    change: function(color) {
+        //setPixelCode(); 
+    },
+    hide: function(color) {
+        //setPixelCode(); 
+    }
+});
+
+$(".custom").on("dragstop.spectrum", function(e, color) {
+     
+    //SET THE VALUE TO PICKUP BELOW!
+    //alert($(this).spectrum('get'));
+    //$(this).val($(this).spectrum('get'));
+    //setPixelCode();
+    $(this).val($(this).spectrum('get'));
+});
+
+function setPixelCode(){
+    const arrOutput = [];
+    //var output = "sense.set_pixels([";
+    var output = "";
+        $( ".custom" ).each(function( index ) {
+            val = $( this ).val();
+            if (val!=""){
+                val = val.match(/\(([^)]+)\)/)[1]
+                val = val.split(',').map(element => {
+                  return Number(element);
+                });
+                
+            } else {
+                val = [0,0,0]
+            }
+            console.log( index + ": " + val);
+            arrOutput.push(val);  // Adds a new element (Lemon) to fruits
+            if(index>0){ 
+                output += ",";
+            }
+            output += "["+val+"]";
+        });
+    //output += "])";
+    console.log( arrOutput);
+    $('#output').html(output);
+    
+    //socket.emit("pi-led", arrOutput); //send button status to server (as 1 or 0)
+}
+
+function getPixelCode(){
+    var input = $("#input").val();
+    if (input!=""){
+        input = input.match(/\(([^)]+)\)/)[1]
+    }
+
+   
+    var myarray = input.split('],[');
+
+    for(var i = 0; i < myarray.length; i++)
+    {
+        myarray[i] = myarray[i].replace(/[\[\]']+/g,'')
+        //console.log(myarray[i]);
+    }
+
+    $( ".custom" ).each(function( index ) {
+        //console.log("Set "+index+":"+myarray[index])
+        $(this).spectrum("set", "rgb("+myarray[index]+")");
+        $(this).val($(this).spectrum('get'));
+        
+    });
+
+    $('#input').val('');
+    setPixelCode();
+
+    //input = input.replace(/[\[\]']+/g,'')
+    //alert(input);
+
+}
+
+
+
+function copyToClipboard(text) {
+    if (window.clipboardData && window.clipboardData.setData) {
+        // IE specific code path to prevent textarea being shown while dialog is visible.
+        return clipboardData.setData("Text", text); 
+
+    } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        var textarea = document.createElement("textarea");
+        textarea.textContent = text;
+        textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+			if(document.execCommand("copy")==true){
+            	alert('Copied!'); 
+				return true;  // Security exception may be thrown by some browsers.
+			}
+        } catch (ex) {
+            console.warn("Copy to clipboard failed.", ex);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
+        }
+		
+    }
+}
+
+setPixelCode();
+
+</script>
+
+
+</body>
+</html>
