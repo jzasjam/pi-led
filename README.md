@@ -10,7 +10,7 @@ Place the directory on your machine in an easy to access directory
 
 ------------------------------
 
-### 2.  In terminal, cd to the directory to downloaded 
+### 2.  In terminal, cd to the directory you downloaded 
 > eg: `cd Downloads/pi-led`
 
 
@@ -25,4 +25,8 @@ Place the directory on your machine in an easy to access directory
  - http://raspberrypi:8080/index.html - Choose a colour, draw on your Pi Sense Hat
  - http://raspberrypi:8080/send_message.html - Type, choose colours and send a message to Pi Sense Hat 
 
-That's it!
+---------------------
+
+## Notes:
+
+- Might need `sudo` for commands
