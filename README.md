@@ -2,7 +2,7 @@
 
 ##### By Jonathan Zasada-James 
 
-### Node.js web server for controlling the LEDs on the Raspberry Pi Smart Hat
+### Node.js web server for controlling the LEDs on the Raspberry Pi Sense Hat with a HTML/JS user interface
 ------------------------------
 
 ## 1. pi-led Setup:  
@@ -12,7 +12,6 @@ Place the directory on your machine in an easy to access directory
 
 ### 2.  In terminal, cd to the directory you downloaded 
 > eg: `cd Downloads/pi-led`
-
 
 ------------------------------
 
