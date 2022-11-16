@@ -44,10 +44,16 @@ body {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="./" class="w3-bar-item w3-button w3-padding-large">Pi SenseHat LED Designer</a>
+    <a href="./" class="w3-bar-item w3-button w3-padding-large"><strong>Pi SenseHat LED Designer</strong></a>
+    <a href="./" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Draw</a>
+    <a href="./send_message.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Send Message</a>
   </div>
 </div>
 
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="./" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Draw</a>
+    <a href="./send_message.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Send A Message</a>
+  </div>
 
 
 
@@ -147,11 +153,12 @@ body {font-family: "Lato", sans-serif}
     <div class="led" data-value="0,0,0"></div>
     <br> 
     <br>
-    <a href="#" onclick="$('#input').val(TMNT);getPixelCode();return false;" class="tag">TMNT</a> 
-    <a href="#" onclick="$('#input').val(TMNT1);getPixelCode();return false;" class="tag">TMNT1</a> 
-    <a href="#" onclick="$('#input').val(TMNT2);getPixelCode();return false;" class="tag">TMNT2</a> 
-    <a href="#" onclick="$('#input').val(TMNT3);getPixelCode();return false;" class="tag">TMNT3</a> 
-    <a href="#" onclick="$('#input').val(TMNT4);getPixelCode();return false;" class="tag">TMNT4</a> 
+    <strong>Use A Demo Image</strong><br>
+    <a href="#" onclick="$('#input').val(TMNT);getPixelCode();return false;" class="tag w3-button">TMNT</a> 
+    <a href="#" onclick="$('#input').val(TMNT1);getPixelCode();return false;" class="tag w3-button">TMNT1</a> 
+    <a href="#" onclick="$('#input').val(TMNT2);getPixelCode();return false;" class="tag w3-button">TMNT2</a> 
+    <a href="#" onclick="$('#input').val(TMNT3);getPixelCode();return false;" class="tag w3-button">TMNT3</a> 
+    <a href="#" onclick="$('#input').val(TMNT4);getPixelCode();return false;" class="tag w3-button">TMNT4</a> 
 
     <br>
     <br>
@@ -347,6 +354,19 @@ function copyToClipboard(text) {
 }
 
 setPixelCode();
+
+
+
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 
 </script>
 

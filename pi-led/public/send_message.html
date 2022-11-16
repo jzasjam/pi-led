@@ -25,12 +25,20 @@ body {font-family: "Lato", sans-serif}
 </head>
 <body>
 
+
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="./" class="w3-bar-item w3-button w3-padding-large">Pi SenseHat LED Designer</a>
-  </div>
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="./" class="w3-bar-item w3-button w3-padding-large"><strong>Pi SenseHat LED Designer</strong></a>
+        <a href="./" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Draw</a>
+        <a href="./send_message.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Send Message</a>
+    </div>
+</div>
+
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="./" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Draw</a>
+    <a href="./send_message.html" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Send A Message</a>
 </div>
 
 
@@ -83,9 +91,10 @@ var socket = io(); //load socket.io-client and connect to the host that serves t
 
 $(document).ready(function () {
     
-
-  socket.emit("light", 1); 
-  socket.emit("message", {message:"Hello! ",color:[255,0,0]}); 
+    //TUrn on 1 led
+    //socket.emit("light", 1); 
+    //Say Hello
+    //socket.emit("message", {message:"Hello! ",color:[255,0,0]}); 
 
   
     $("#send_message").on("click", function(e, color) {
@@ -234,6 +243,20 @@ function copyToClipboard(text) {
 }
 
 setPixelCode();
+
+
+
+
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 
 </script>
 
